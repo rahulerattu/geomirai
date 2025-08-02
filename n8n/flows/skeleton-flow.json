@@ -1,0 +1,51 @@
+{
+  "name": "Geomirai ETL Skeleton",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "schedule",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "lat",
+              "value": "19.07"
+            },
+            {
+              "name": "lon",
+              "value": "72.87"
+            },
+            {
+              "name": "date",
+              "value": "2025-08-02"
+            }
+          ]
+        }
+      },
+      "id": "set",
+      "name": "Set Params",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [420, 300]
+    }
+  ],
+  "connections": {
+    "schedule": {
+      "main": [
+        [
+          {
+            "node": "Set Params",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
