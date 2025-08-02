@@ -9,7 +9,6 @@ app = FastAPI(
 
 app.include_router(health.router)
 
-# Optionally, add root endpoint
 @app.get("/")
 def root():
     return {"message": "Welcome to GeoMirai API"}
