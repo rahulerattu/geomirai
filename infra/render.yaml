@@ -2,11 +2,29 @@ services:
   - type: web
     name: geomirai-api
     env: python
+    rootDir: app
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 8000
+    envVars:
+      - key: POSTGRES_DB
+        value: geomirai
+      - key: POSTGRES_USER
+        value: geomirai_user
+      - key: POSTGRES_PASSWORD
+        value: password123
+      - key: POSTGRES_HOST
+        value: <your-db-host>
+      - key: POSTGRES_PORT
+        value: 5432
+      - key: TZ
+        value: Asia/Kolkata
 
   - type: web
     name: geomirai-ui
     env: node
+    rootDir: ui
     buildCommand: yarn install && yarn build
     startCommand: yarn start
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        value: https://geomirai-api.onrender.com

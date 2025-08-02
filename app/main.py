@@ -1,12 +1,15 @@
 from fastapi import FastAPI
-from app.routes import health
+
+from routes import health
 
 app = FastAPI(
-    title="Geomirai API",
-    description="Crop suitability & economics endpoints",
-    version="0.1.0"
+    title="GeoMirai API",
+    description="End-to-End Crop-Suitability & Profitability Platform"
 )
 
 app.include_router(health.router)
 
-# Add more routers for /report/{field_id}, /suitability, etc.
+# Optionally, add root endpoint
+@app.get("/")
+def root():
+    return {"message": "Welcome to GeoMirai API"}

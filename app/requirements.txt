@@ -1,12 +1,12 @@
 fastapi
 uvicorn[standard]
 psycopg2-binary
-pandas
 sqlalchemy
 python-dotenv
 requests
-stripe
+pandas
 boto3
+stripe
 supabase
 pydantic
 scikit-learn
@@ -15,11 +15,8 @@ email-validator
 aiohttp
 httpx
 jinja2
-# geospatial dependencies
 geopandas
 shapely
 rasterio
-# optional: for async tasks
 celery
-# optional: for testing
 pytest
